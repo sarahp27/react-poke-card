@@ -38,8 +38,7 @@ function Pokemon() {
     <div className='container'>
         <h1>Pokemon</h1>
         <div className='pokemon'>
-            <div className='content'>
-            {allPokemon.map (pokemon => <li>{pokemon.name}</li> )}
+            <div className='content'>{allPokemon.map((pokemon) => <li>{pokemon.name}</li>)}
             </div>
             <button  className='load'>Load More</button>
         </div>
