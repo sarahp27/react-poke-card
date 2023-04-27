@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import './Pokemon.css';
+// import './Pokemon.css';
+import PokemonMini from './PokemonMini';
 
 function Pokemon() {
 
@@ -11,36 +12,40 @@ function Pokemon() {
        const result = await fetch(loadMore)
        const data =  await result.json()
        setLoadMore(data.next)
-      
-       function createPokemonsObject(res){
-        // res(async (pokemon) => {
-        //      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-        //     .then(pokemon.)result.json()) 
 
-        //     // setAllPokemon(currentList => [...currentList,data])
-        //     setAllPokemon(data);
-        //     await console.log(allPokemon)
-        // });
-       } 
-       createPokemonsObject(data.res)
-    } 
+    const pokemonData = await Promise.all(
+        data.results.map(async (pokemon) => {
+          const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
+          return res.json();
+        })
+      );
+      
+     setAllPokemon((currentList) => [...currentList, ...pokemonData]);
+   
+    };
+
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=25')
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=30')
         .then((res)=> res.json())
-        .then(result =>{
+        .then((result) =>{
           setAllPokemon(result)
-          setISwait(true)
+           setISwait(true)
           console.log(result)})
+          
     },[])
 
   return (
     <div className='container'>
         <h1>Pokemon</h1>
-        <div className='pokemon'>
-            <div className='content'>{allPokemon.map((pokemon) => <li>{pokemon.name}</li>)}
+        <div className='pokemon-container'>
+            
+            <div className='all-container'>
+             
+            {allPokemon.length > 0 && allPokemon.map((pokemon,index) => <PokemonMini id={pokemon.id} name= {pokemon.name} image ={pokemon.sprites.other.dream_world.front_default}  type={pokemon.types[0].type.name} key={index}/> )}
+             
             </div>
-            <button  className='load'>Load More</button>
+            <button  className='load' onClick={() => getPokemon()}>Load More</button>
         </div>
     </div>
   )

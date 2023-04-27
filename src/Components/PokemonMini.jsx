@@ -1,15 +1,15 @@
 import React from 'react'
 
-function PokemonMini(props) {
+function PokemonMini(id,name,image,type,key) {
   return (
-    <div className='container'>
+    <div className='pk-container'>
         <div className='num'>
-            <small>?#0{props.id}</small>
+            <small>?#0{id}</small>
         </div>
-        <img src={props.image} alt={props.name}/>
+        <img src={image} alt={name}/>
         <div className='details'>
-            <h3>{props.name}</h3>
-            <small>Type: {props.type}</small>
+            <h3>{name}</h3>
+            <small>Type: {type}</small>
         </div>
     </div>
   )
