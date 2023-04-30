@@ -1,18 +1,29 @@
 import React from 'react'
+import './style.css'
 
-function PokemonMini(id,name,image,type,key) {
-  return (
-    <div className='pk-container'>
-        <div className='num'>
-            <small>?#0{id}</small>
-        </div>
-        <img src={image} alt={name}/>
-        <div className='details'>
-            <h3>{name}</h3>
-            <small>Type: {type}</small>
-        </div>
-    </div>
-  )
+const PokemonMini = ({poke, waiting,details}) => {
+    console.log(poke)
+    return (
+        <>{
+            waiting ? <h1>Loading... </h1> :
+                poke.map((item) => {
+                    return (
+                        <>
+                            <div className='pokemon-mini' key={item.id} onClick={()=> details(item)}>
+                                <h2>{item.id}</h2>
+                                <img src={item.sprites.front_default} alt='' />
+                                <h2>{item.name}</h2>
+
+                            </div>
+                        </>
+                    )
+                })
+        }
+
+        </>
+
+    )
 }
+
 
 export default PokemonMini

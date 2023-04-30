@@ -1,51 +1,70 @@
-# React Poke Card
+# Getting Started with Create React App
 
-_Grabbing onto React hooks._
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## High Level Goals of this Sprint
-* Become familiar with functional react.
-* Apply hooks to control and manipulate your app.
-* Leverage an API to populate your app with data based on the url string.
+## Available Scripts
 
-## Bare Minimum Requirements
+In the project directory, you can run:
 
-Complete all the bare minimum requirements before moving on to the advanced content. This sprint gives you a substantial amount of creative freedom. We recommend that you read through all the requirements and hold a short planning session with your pair to discuss what your final product will be.
+### `npm start`
 
-- [] Renders a Pokemon Card based on the query parameters in the address bar. Do not use react-router for this assignment. [See here](https://stackoverflow.com/questions/56111914/how-to-read-url-parameters-within-component-in-react-js) for one way that you could accomplish this.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- [] Makes requests to the [PokeAPI](https://pokeapi.co/) to populate a Card of the Pokemon queried.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- [] You can use fetch to make your api call or you may choose to incorporate a different library like [axios](https://axios-http.com/docs/intro)
+### `npm test`
 
-- [] Use `useEffect` and `useState` properly to establish appropriate state management.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- [] The pokemon card should contain the pokemon's name, sprite, and any other at a glance information that may be beneficial. Play with the [PokeAPI](https://pokeapi.co/) interface to see what type of information is available for a pokemon.
+### `npm run build`
 
-- [] When the card is clicked, render the 'back' of the card with a full glimpse of information about that pokemon.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- [] Add your own style and flair to the page. Be creative.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-A base repository built with Create-React-App has been provided for you.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Advanced Content
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior level engineer.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Feel free to experiment with other React features while tackling these. You may choose to do any or all of these in any order:
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- [] Implement a side bar that shows all possible evolutions of the current pokemon(ie. 'charmander', 'charmeleon', 'charizard'). 
-  - [] Each evolution should show a name and sprite as well as 
-  - [] Make a clickHandler redirecting the user to the associated page for that pokemon.
+## Learn More
 
-- [] Add a navigation bar that allows the user to find other Pokemon.
-  - [] Either implement a search feature that renders results on the current page.
-  - [] Or display mini cards of randomly selected other pokemon.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Relevant Documentation:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-* [ReactJS](https://reactjs.org/docs/getting-started.html)
-* [PokeAPI](https://pokeapi.co/) is a public RESTful API that can simulate what requests to any RESTful server would be like.
-* [MDN fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
-* [Axios](https://axios-http.com/docs/intro)
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

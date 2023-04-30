@@ -1,54 +1,51 @@
-import React, { useEffect, useState } from 'react'
-// import './Pokemon.css';
-import PokemonMini from './PokemonMini';
+import React from 'react'
+import './style.css'
 
-function Pokemon() {
+const Pokemon = ({ data }) => {
+    console.log(data)
+    return (
+        <>
+            <div className="card">
+                {
+                    (!data) ? "" : (
+                        <>
+                            <h1>{data.name}</h1>
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt='' />
+                            <div className='ability'>
+                                {
+                                    data.abilities.map(pok => {
+                                        return (
+                                            <>
+                                                <div className="group">
+                                                    <h2>{pok.ability.name}</h2>
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
 
-    const [allPokemon, setAllPokemon] = useState([]);
-    const [isWait, setISwait] = useState(false);
-    const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon')
+                            </div>
+                            <div className="base-stats">
 
-    const getPokemon = async () => {
-       const result = await fetch(loadMore)
-       const data =  await result.json()
-       setLoadMore(data.next)
+                                {
+                                    data.stats.map( pok => {
+                                        return (
+                                            <>
+                                            <h3>{pok.stat.name} : {pok.base_stat}</h3>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </>
+                    )
+                }
 
-    const pokemonData = await Promise.all(
-        data.results.map(async (pokemon) => {
-          const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
-          return res.json();
-        })
-      );
-      
-     setAllPokemon((currentList) => [...currentList, ...pokemonData]);
-   
-    };
-
-
-    useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=30')
-        .then((res)=> res.json())
-        .then((result) =>{
-          setAllPokemon(result)
-           setISwait(true)
-          console.log(result)})
-          
-    },[])
-
-  return (
-    <div className='container'>
-        <h1>Pokemon</h1>
-        <div className='pokemon-container'>
-            
-            <div className='all-container'>
-             
-            {allPokemon.length > 0 && allPokemon.map((pokemon,index) => <PokemonMini id={pokemon.id} name= {pokemon.name} image ={pokemon.sprites.other.dream_world.front_default}  type={pokemon.types[0].type.name} key={index}/> )}
-             
             </div>
-            <button  className='load' onClick={() => getPokemon()}>Load More</button>
-        </div>
-    </div>
-  )
+        </>
+    )
 }
 
-export default Pokemon;
+
+
+export default Pokemon
